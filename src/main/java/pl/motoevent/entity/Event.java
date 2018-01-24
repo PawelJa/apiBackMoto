@@ -1,8 +1,12 @@
 package pl.motoevent.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="events")
@@ -25,6 +29,10 @@ public class Event {
     private String dateEnd;
 
     private String description;
+
+    @ManyToMany
+    @JoinColumn(name="id_user")
+    private List<User> users = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -88,6 +96,14 @@ public class Event {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public Event() {

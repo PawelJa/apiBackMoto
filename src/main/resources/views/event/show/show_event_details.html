@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-url/2.5.2/url.min.js"></script>
+    <script>
+
+        var API_URL = 'http://localhost:8080/'
+        var event = {};
+
+
+        $.ajax({
+            url: API_URL + "event/" + $.url("?eventId")
+        }).done(function (response) {
+            event = response;
+            console.log(event);
+
+        })
+
+
+    </script>
+</head>
+<body>
+book
+</body>
+</html>

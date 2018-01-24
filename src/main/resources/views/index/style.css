@@ -1,4 +1,4 @@
-#menu {
+div#menu {
     width: 100%;
     height: 80px;
     background-color: #333333;
@@ -10,14 +10,19 @@ body {
     background: url("../images/background.jpg");
     background-position: center;
     background-attachment: fixed;
+    height: 100%
+}
+html {
+    height: 100%;
 }
 
-#content {
-    width: 100%;
-    height: 70%;
+div#content {
+    margin: auto;
+    width: 75%;
+    min-height: 80%;
 }
 
-#footer {
+div#footer {
     width: 100%;
     height: 100px;
     background-color: #111111;

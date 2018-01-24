@@ -6,6 +6,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -27,6 +29,10 @@ public class User {
     @NotEmpty
     @Email
     private String email;
+
+    @ManyToMany
+    @JoinColumn(name="id_event")
+    private List<Event> events = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -58,6 +64,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 
     public User() {

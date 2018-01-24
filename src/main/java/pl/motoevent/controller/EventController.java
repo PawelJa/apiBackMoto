@@ -26,4 +26,19 @@ public class EventController {
     public List<Event> showAllEvents() {
         return this.eventRepository.findAll();
     }
+
+    @GetMapping("/{id}")
+    public Event showEventDetails(@PathVariable long id) {
+        return this.eventRepository.findOne(id);
+    }
+
+    @PostMapping("/{id}/joinEvent")
+    public void addUserToEvent(@PathVariable long id) {
+        long userId=2;//TODO
+        Event one = this.eventRepository.findOne(id);
+        User user = new User();
+        user.setId(userId);
+        one.getUsers().add(user);
+        eventRepository.save(one);
+    }
 }
