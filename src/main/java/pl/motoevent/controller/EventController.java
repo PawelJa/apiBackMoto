@@ -32,6 +32,11 @@ public class EventController {
         return this.eventRepository.findOne(id);
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable long id) {
+        this.eventRepository.delete(id);
+    }
+
     @PostMapping("/{id}/joinEvent")
     public void addUserToEvent(@PathVariable long id) {
         long userId=2;//TODO
