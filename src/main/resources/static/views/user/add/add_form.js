@@ -27,8 +27,8 @@ $(document).ready(function () {
         };
 
         // console.log(username + ", " + password + ", " + email);
-        fetch("http://localhost:8080/user/add", myInit).then(function (response) {
-            window.location.href=API_URL+"user/all";
+        fetch("http://localhost:8080/register", myInit).then(function (response) {
+            window.location.href="http://localhost:8080/login";
         });
     });
 

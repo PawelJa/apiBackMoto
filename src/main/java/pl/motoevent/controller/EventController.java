@@ -1,11 +1,12 @@
 package pl.motoevent.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.core.support.EventPublishingRepositoryProxyPostProcessor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import pl.motoevent.entity.Event;
 import pl.motoevent.entity.User;
 import pl.motoevent.repository.EventRepository;
+import pl.motoevent.security.UserPrincipal;
 
 import java.util.List;
 
@@ -23,7 +24,9 @@ public class EventController {
     }
 
     @GetMapping("/all")
-    public List<Event> showAllEvents() {
+    public List<Event> showAllEvents(@AuthenticationPrincipal UserPrincipal principal) {
+        System.out.println(principal.getId());
+        System.out.println(principal.getUsername());
         return this.eventRepository.findAll();
     }
 
