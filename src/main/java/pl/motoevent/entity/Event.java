@@ -30,6 +30,10 @@ public class Event {
 
     private String description;
 
+    private int Quantity;
+
+    private int availableQuantity;
+
     @ManyToMany
     @JoinColumn(name="id_user")
     private List<User> users = new ArrayList<>();
@@ -104,6 +108,22 @@ public class Event {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        Quantity = quantity;
+    }
+
+    public int getAvailableQuantity() {
+        return availableQuantity;
+    }
+
+    public void setAvailableQuantity(int availableQuantity) {
+        this.availableQuantity = availableQuantity;
     }
 
     public Event() {

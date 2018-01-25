@@ -1,38 +1,53 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="add_form.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src='add_form.js'></script>
 </head>
 <body>
+<div id="menu">
+    <div id="logo">
+        logo
+    </div>
+    <div id="menuContent">
+        <!--sdgfugdsgfyudsgygdsu-->
+        <a class="menu" href="index.html">START</a>
+        <a class="menu" href="../event/show/show_all.html">OFERTA</a>
+        <a class="menu" href="../feedback/show/show_all">OPINIE</a>
+        <a class="menu" href="../login/">ZALOGUJ</a>
+        <!--<object id="obejctMenu" name="menu" type="text/html" data="menu.html"></object>-->
+    </div>
+</div>
+<div class = 'content'>
 
 <div id="add_event_form">
-    <label>EventName:</label>
+    <label>Nazwa wydarzenia:</label><br>
     <input type="text" id="eventName"/>
-
-    <label>TrackName:</label>
+<br><br>
+    <label>Nazwa toru:</label><br>
     <input type="text" id="trackName"/>
-
-    <label>Country:</label>
+    <br><br>
+    <label>Kraj:</label><br>
     <input type="text" id="country"/>
-
-    <label>Adress:</label>
+    <br><br>
+    <label>Adres:</label><br>
     <input type="text" id="adress"/>
-
-    <label>Starts:</label>
+    <br><br>
+    <label>Początek:</label><br>
     <input type="date" id="dateStart"/>
-
-    <label>Ends:</label>
+    <br><br>
+    <label>Koniec:</label><br>
     <input type="date" id="dateEnd"/>
-
-    <label>Description:</label>
+    <br><br>
+    <label>Opis:</label><br>
     <textarea id="description"></textarea>
     <br><br>
-    <p>dsdfsd</p>
+
     <button id="buttonToSend">Dodaj</button>
 </div>
 
+</div>
 </body>
 </html>

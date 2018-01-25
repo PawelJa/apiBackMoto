@@ -1,15 +1,17 @@
+#options {
+    width: 400px;
+    display: block;
+}
 
 a {
     display: inline-block;
     color: #FFF;
     font-family: Arial;
+    height: 40px;
     text-decoration: none;
     font-weight: bold;
     width: auto;
-    height: 30px;
-    background-color: silver;
-    padding-right: 10px;
-    padding-left: 10px;
-
-
+    /*padding-right: 1px;*/
+    /*padding-left: 5px;*/
+    /*margin-left: 10px*/
 }

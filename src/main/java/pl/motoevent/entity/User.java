@@ -30,6 +30,18 @@ public class User {
     @Email
     private String email;
 
+    private String firstName;
+
+    private String lastName;
+
+    private String motorbike;
+
+    private String avatar;
+
+    private String adress;
+
+    private String city;
+
     @ManyToMany
     @JoinColumn(name="id_event")
     private List<Event> events = new ArrayList<>();
@@ -72,6 +84,54 @@ public class User {
 
     public void setEvents(List<Event> events) {
         this.events = events;
+    }
+
+    public String getMotorbike() {
+        return motorbike;
+    }
+
+    public void setMotorbike(String motorbike) {
+        this.motorbike = motorbike;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public User() {

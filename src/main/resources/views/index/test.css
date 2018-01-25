@@ -1,0 +1,13 @@
+#1 {
+    width: 100%;
+    height: 100px;
+    background-color: red;
+    display: block;
+}
+
+#2 {
+    width: 200px;
+    height: 100px;
+    background-color: blue;
+    display: block;
+}

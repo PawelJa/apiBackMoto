@@ -24,7 +24,7 @@
 
 body {
     margin: 0;
-    background: url("../images/background.jpg");
+    background: url("../../images/background.jpg");
     background-position: center;
     background-attachment: fixed;
     height: 100%
@@ -33,11 +33,13 @@ html {
     height: 100%;
 }
 
-#content {
+.content {
     margin: auto;
     width: 75%;
     min-height: 80%;
     text-align: center;
+    background-color: #FFFFFF;
+    padding-top: 20px;
 }
 
 #footer {
@@ -103,7 +105,42 @@ input#search {
     padding-left: 10px;
 }
 
-input#searchButton {
-    display: none;
+a.list:link {
+    display: inline-block;
+    color: #333333;
+    font-family: Arial;
+    /*height: 30px;*/
+    text-decoration: none;
+    font-weight: bold;
+    width: auto;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+a.list:hover,:visited {
+    display: inline-block;
+    color: #333333;
+    font-family: Arial;
+    /*height: 30px;*/
+    font-weight: bold;
+    font-decoration: underline;
+    font-decoration-color: red;
+    width: auto;
+    padding-bottom: 2px;
+    border-bottom: 3px solid red;
+    right: 20px;
+}
+
+a.list:hover {
+    display: inline-block;
+    color: #333333;
+    font-family: Arial;
+    /*height: 30px;*/
+    font-weight: bold;
+    width: auto;
+    padding-bottom: 2px;
+    border-bottom: 3px solid red;
+    right: 20px;
 }
 
