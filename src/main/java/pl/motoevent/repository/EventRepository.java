@@ -12,4 +12,7 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     @Query(value = "SELECT users_id FROM events_users WHERE Event_id = ?1", nativeQuery = true)
     List<User> findAllUsersInEvent(long id);
 
+    @Query(value = "SELECT Event_id FROM events_users WHERE users_id = ?1", nativeQuery = true)
+    List<Event> findAllEventsWhereUserIs(long id);
+
 }

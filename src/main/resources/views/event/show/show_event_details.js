@@ -15,7 +15,7 @@ $(document).ready(function () {
         console.log(event);
 
         var eventContent= $('.event')
-        console.log(eventContent)
+        // console.log(eventContent)
 
         eventContent.append("" +
             "<div class='eventName'>" + event.eventName + "</div>" +
@@ -25,8 +25,41 @@ $(document).ready(function () {
             "<div class='date'>" + event.dateStart + " - " + event.dateEnd + "</div>" +
             "<div class='country'>" + event.country + "</div>" +
             "<div class='adress'>" + event.address + "</div>" +
+            "<button id='joinEvent'>Dołącz do eventu!</button>" +
             "<div class='listUsers'> Lista aktualnych uczestników: </div>" +
             "<table class='table'></table>");
+
+        var button = $('#joinEvent');
+        console.log(button);
+
+        button[0].addEventListener('click', function () {
+            var id = event.id;
+
+            console.log(id)
+
+            var objectToSend = {
+                id: id
+            };
+
+            var myHeaders = new Headers({
+                'content-type': 'application/json'
+            });
+
+            var myInit = {
+                method: "POST",
+                headers: myHeaders,
+                mode: "cors",
+                cache: "default",
+                body: JSON.stringify(objectToSend)
+            };
+
+            fetch(API_URL + "event/ " + id + "/joinEvent", myInit).then(function (response) {
+                window.location.href = pathname;
+            })
+
+        })
+
+
 
         var table = $('.table')
 
@@ -37,9 +70,14 @@ $(document).ready(function () {
                 "<td>"+ e.username + "</td>" +
                 "<td>motorbike</td>" +
                 "</tr>")
-            console.log(e.username)
-        })
-    })
+            // console.log(e.username)
+        });
+    });
+
+    var button = $('.button');
+    console.log(button);
+
+
 
 
 })

@@ -54,12 +54,15 @@ public class EventController {
     }
 
     @PostMapping("/{id}/joinEvent")
-    public void addUserToEvent(@PathVariable long id) {
-        long userId=1;//TODO
+    public void addUserToEvent(@PathVariable long id, @AuthenticationPrincipal UserPrincipal principal) {
         Event one = this.eventRepository.findOne(id);
-        User user = new User();
-        user.setId(userId);
+        User user = userRepository.findOne(principal.getId());
         one.getUsers().add(user);
         eventRepository.save(one);
+    }
+
+    @GetMapping("/all/{id}")
+    public List<Event> getAllEvent(@PathVariable long id) {
+        return this.eventRepository.findAllEventsWhereUserIs(id);
     }
 }

@@ -28,7 +28,7 @@ public class UploadController {
     private UserRepository userRepository;
 
     //Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "/home/magda/upp/avatar_";
+    private static String UPLOADED_FOLDER = "/home/magda/IdeaProjects/apiBackMoto/src/main/resources/views/images/uploaded/avatar_";
 
     @GetMapping("/")
     public String index() {

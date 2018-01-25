@@ -7,7 +7,6 @@
 }
 
 #logo {
-    background-color: red;
     width: 280px;
     height: 80px;
     margin-left: 10px;
@@ -46,10 +45,13 @@ html {
     width: 100%;
     height: 100px;
     background-color: #111111;
+    text-align: center;
+    padding-top: 20px;
 }
 
-#objectMenu {
-    width: 400px;
+p {
+    font-family: Arial;
+    color: #cccccc;
 }
 
 a.menu:link {
@@ -65,7 +67,7 @@ a.menu:link {
     margin-right: 20px;
 }
 
-a.menu:hover,:visited {
+a.menu:hover, a.menu:visited{
     display: inline-block;
     color: #FFF;
     font-family: Arial;
@@ -77,17 +79,6 @@ a.menu:hover,:visited {
     right: 20px;
 }
 
-a.menu:hover {
-    display: inline-block;
-    color: #FFF;
-    font-family: Arial;
-    /*height: 30px;*/
-    font-weight: bold;
-    width: auto;
-    padding-bottom: 2px;
-    border-bottom: 3px solid red;
-    right: 20px;
-}
 
 input#search {
     width: 380px;

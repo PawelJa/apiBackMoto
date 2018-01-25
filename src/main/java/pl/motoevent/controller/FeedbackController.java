@@ -3,6 +3,7 @@ package pl.motoevent.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.motoevent.entity.Event;
@@ -43,4 +44,9 @@ public class FeedbackController {
     public List<Feedback> getAll() {
         return feedbackRepository.findAll();
     }
+
+//    @GetMapping("/all/{id}")
+//    public List<User> getAllEvent(@PathVariable long id) {
+//        return this.eventRepository.findAllEventsWhereUserWas(id);
+//    }
 }

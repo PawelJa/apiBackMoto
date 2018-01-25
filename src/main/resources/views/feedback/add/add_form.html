@@ -1,23 +1,41 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="add_form.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='add_form.js'></script>
 </head>
 <body>
+<div id="menu">
+    <div id="logo">
+        logo
+    </div>
+    <div id="menuContent">
+        <!--sdgfugdsgfyudsgygdsu-->
+        <a class="menu" href="http://localhost:8080/index.html">START</a>
+        <a class="menu" href="http://localhost:8080/event/show/show_all.html">OFERTA</a>
+        <a class="menu" href="http://localhost:8080/feedback/show/show_all.html">OPINIE</a>
+        <a class="menu" href="http://localhost:8080/checkLogin">KONTO</a>
+        <!--<object id="obejctMenu" name="menu" type="text/html" data="menu.html"></object>-->
+    </div>
+</div>
+<div class = 'content'>
 
-<div id="add_user_form">
-    <label for="Username">Username:</label>
-    <input type="text" id="username"/>
+<div id="add_feedback_form">
+    <label>Event:</label>
+    <input type="select" id="event">
+    </input>
 
-    <label for="Password">Password:</label>
-    <input type="text" id="password"/>
-
-    <label for="Email">Email:</label>
-    <input type="text" id="email"/>
+    <label>Opis:</label>
+    <textarea id="description"/>
 
     <button id="buttonToSend">Dodaj</button>
 </div>
+
+    <div id="footer">
+        <p>Autor: Paweł Janecki</p>
+    </div>
 
 </body>
 </html>
