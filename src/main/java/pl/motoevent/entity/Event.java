@@ -2,6 +2,7 @@ package pl.motoevent.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name="events")
+@Table(name = "events")
 public class Event {
 
     @Id
@@ -28,6 +29,7 @@ public class Event {
 
     private String dateEnd;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     private int Quantity;
@@ -35,7 +37,7 @@ public class Event {
     private int availableQuantity;
 
     @ManyToMany
-    @JoinColumn(name="id_user")
+    @JsonIgnore
     private List<User> users = new ArrayList<>();
 
     public Long getId() {

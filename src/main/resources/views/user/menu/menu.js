@@ -17,7 +17,7 @@ $(document).ready(function () {
 
             var avatar = $('.avatar');
             avatar.append("" +
-                "<img src='file://" + userDetails.avatar + "' style='max-height: 250px; max-weidth: 250px'/>")
+                "<img src='" + userDetails.avatar + "' style='max-height: 250px; max-weidth: 250px'/>")
             console.log(avatar)
 
 

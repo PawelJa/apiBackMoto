@@ -56,7 +56,7 @@ public class UploadController {
             Files.write(path, bytes);
 
             User user = userRepository.findByUsername(username);
-            user.setAvatar(UPLOADED_FOLDER + file.getOriginalFilename());
+            user.setAvatar("http://localhost:8080/images/uploaded/avatar_" + file.getOriginalFilename());
             userRepository.save(user);
 
             redirectAttributes.addFlashAttribute("message",

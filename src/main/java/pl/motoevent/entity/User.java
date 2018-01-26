@@ -42,8 +42,7 @@ public class User {
 
     private String city;
 
-    @ManyToMany
-    @JoinColumn(name="id_event")
+    @ManyToMany(mappedBy = "users")
     private List<Event> events = new ArrayList<>();
 
     public Long getId() {

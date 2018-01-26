@@ -30,13 +30,13 @@ public class FeedbackController {
 
     @GetMapping("/add")
     public void addFeedback() {
-        User user = userRepository.findOne(2L);
-        Event event = eventRepository.findOne(3L);
+        User user = userRepository.findOne(14L);
+        Event event = eventRepository.findOne(12L);
         Feedback feedback = new Feedback();
         feedback.setUser(user);
         feedback.setEvent(event);
-        feedback.setDateAdd("2014-05-03");
-        feedback.setDescription("opis");
+        feedback.setDateAdd("2018-01-25");
+        feedback.setDescription("Super impreza i świetna organizacja eventu ! POLECAM");
         feedbackRepository.save(feedback);
     }
 

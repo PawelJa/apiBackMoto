@@ -24,22 +24,17 @@ $(document).ready(function () {
             "<div class='details'> Szczegóły: </div>" +
             "<div class='date'>" + event.dateStart + " - " + event.dateEnd + "</div>" +
             "<div class='country'>" + event.country + "</div>" +
-            "<div class='adress'>" + event.address + "</div>" +
-            "<button id='joinEvent'>Dołącz do eventu!</button>" +
+            "<div class='adress'>" + event.adress + "</div>" +
+            "<button id='joinEvent'>Zapisz się</button>" +
+            "<br><br><img src='http://motorraid.pl/wp-content/uploads/2017/11/tor-valencia2.png'/><br>" +
             "<div class='listUsers'> Lista aktualnych uczestników: </div>" +
             "<table class='table'></table>");
 
-        var button = $('#joinEvent');
+        var button = document.querySelector('#joinEvent');
         console.log(button);
 
-        button[0].addEventListener('click', function () {
-            var id = event.id;
-
+        button.addEventListener('click', function () {
             console.log(id)
-
-            var objectToSend = {
-                id: id
-            };
 
             var myHeaders = new Headers({
                 'content-type': 'application/json'
@@ -50,35 +45,37 @@ $(document).ready(function () {
                 headers: myHeaders,
                 mode: "cors",
                 cache: "default",
-                body: JSON.stringify(objectToSend)
+                credentials: "same-origin"
             };
 
-            fetch(API_URL + "event/ " + id + "/joinEvent", myInit).then(function (response) {
+            fetch(API_URL + "event/" + event.id + "/joinEvent", myInit).then(function (response) {
                 window.location.href = pathname;
             })
 
         })
+    });
 
+    var riders = {}
 
+    $.ajax({
+        url: API_URL + "event/" + id + "/riders"
+    }).done(function (response) {
+        riders = response;
+        console.log(riders);
 
         var table = $('.table')
 
-        event.users.forEach(function (e) {
+        riders.forEach(function (e) {
             table.append("" +
                 "<tr>" +
-                "<td>avatar</td>" +
-                "<td>"+ e.username + "</td>" +
-                "<td>motorbike</td>" +
+                "<td><img src='" + e.avatar + "' style='max-height: 80px; max-weidth: 80px'/></td>" +
+                "<td>" + e.username + "</td>" +
+                "<td>" + e.motorbike + "</td>" +
                 "</tr>")
             // console.log(e.username)
         });
-    });
 
-    var button = $('.button');
-    console.log(button);
-
-
-
+    })
 
 })
 

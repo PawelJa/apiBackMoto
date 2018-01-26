@@ -45,7 +45,9 @@ public class EventController {
 
     @GetMapping("/{id}/riders")
     public List<User> showAllRidersInEvent(@PathVariable long id) {
-        return this.userRepository.findAllUsersInEvent(id);
+        Event event = new Event();
+        event.setId(id);
+        return this.userRepository.findAllUsersByEvents(event);
     }
 
     @DeleteMapping("/{id}")
@@ -54,11 +56,15 @@ public class EventController {
     }
 
     @PostMapping("/{id}/joinEvent")
-    public void addUserToEvent(@PathVariable long id, @AuthenticationPrincipal UserPrincipal principal) {
+    public User addUserToEvent(@AuthenticationPrincipal UserPrincipal principal, @PathVariable long id) {
         Event one = this.eventRepository.findOne(id);
-        User user = userRepository.findOne(principal.getId());
+        String username = principal.getUsername();
+        System.out.println(username);
+        User user = userRepository.findByUsername(username);
+        Long userId = user.getId();
         one.getUsers().add(user);
         eventRepository.save(one);
+        return user;
     }
 
     @GetMapping("/all/{id}")

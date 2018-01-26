@@ -15,11 +15,11 @@ public class Feedback {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="id_event")
+//    @JoinColumn(name="id_event")
     private Event event;
 
     @ManyToOne
-    @JoinColumn(name="id_user")
+//    @JoinColumn(name="id_user")
     private User user;
 
     public Feedback() {
