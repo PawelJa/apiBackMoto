@@ -1,3 +1,11 @@
+Currently under construction:
+ - Spring Security implementation with Roles for users
+ - creating user-manager for Admin
+
+Ready simple implementation Spring Security is available in NewSpringSecurityJava repository: https://github.com/PawelJa/NewSprignSecurityJava . This repository shows, how it works with roles division and how to restrict access for users/admins.
+
+
+
 # apiBackMoto
 
 Front-end and back-end application to managment events.
