@@ -1,10 +1,10 @@
-package pl.newspringsecurityjava.dao;
+package pl.motoevent.dao;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
-import pl.newspringsecurityjava.model.UserProfile;
+import pl.motoevent.model.UserProfile;
 
 import java.util.List;
 

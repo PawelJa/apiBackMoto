@@ -1,4 +1,4 @@
-package pl.newspringsecurityjava.model;
+package pl.motoevent.model;
 
 import javax.persistence.*;
 import java.io.Serializable;

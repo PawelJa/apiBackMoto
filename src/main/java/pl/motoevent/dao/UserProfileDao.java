@@ -1,6 +1,6 @@
-package pl.newspringsecurityjava.dao;
+package pl.motoevent.dao;
 
-import pl.newspringsecurityjava.model.UserProfile;
+import pl.motoevent.model.UserProfile;
 
 import java.util.List;
 

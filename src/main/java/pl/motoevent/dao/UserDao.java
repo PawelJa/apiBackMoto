@@ -1,4 +1,4 @@
-package pl.newspringsecurityjava.dao;
+package pl.motoevent.dao;
 
 import pl.newspringsecurityjava.model.User;
 

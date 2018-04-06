@@ -1,4 +1,4 @@
-package pl.newspringsecurityjava.dao;
+package pl.motoevent.dao;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;

@@ -1,4 +1,4 @@
-package pl.newspringsecurityjava.dao;
+package pl.motoevent.dao;
 
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
@@ -7,7 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-import pl.newspringsecurityjava.model.User;
+import pl.motoevent.model.User;
 
 import java.util.List;
 

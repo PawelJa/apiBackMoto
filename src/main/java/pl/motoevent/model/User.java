@@ -1,4 +1,4 @@
-package pl.newspringsecurityjava.model;
+package pl.motoevent.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
