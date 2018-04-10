@@ -1,10 +1,13 @@
 package pl.motoevent.security;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import pl.motoevent.entity.User;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UserPrincipal implements UserDetails {
     private User user;
@@ -19,7 +22,10 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_" + user.getUserRole().getRole());
+        Set<GrantedAuthority> grantedAuthoritySet = new HashSet<>();
+        grantedAuthoritySet.add(grantedAuthority);
+        return grantedAuthoritySet;
     }
 
     @Override
@@ -51,4 +57,5 @@ public class UserPrincipal implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+    
 }
