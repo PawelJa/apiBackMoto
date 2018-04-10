@@ -1,7 +1,7 @@
-package pl.ssdemo.repository;
+package pl.motoevent.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.ssdemo.entity.UserRole;
+import pl.motoevent.entity.UserRole;
 
 public interface UserRoleRepository extends JpaRepository <UserRole, Long>{
 
