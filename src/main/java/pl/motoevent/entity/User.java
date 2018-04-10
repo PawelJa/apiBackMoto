@@ -1,7 +1,6 @@
 package pl.motoevent.entity;
 
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -27,23 +26,10 @@ public class User implements Serializable {
     @Size(min=4)
     private String password;
 
-    @NotEmpty
-    @Email
     private String email;
 
-    private String firstName;
-
-    private String lastName;
-
-    private String adress;
-
-    private String city;
-
-    private String postcode;
-
-    private String motorbike;
-
-    private String avatar;
+    @OneToOne
+    private UserDetails userDetails = new UserDetails();
 
     @OneToOne
     private UserRole userRole = new UserRole();
@@ -83,6 +69,14 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public UserDetails getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetails userProfile) {
+        this.userDetails = userProfile;
+    }
+
     public List<Event> getEvents() {
         return events;
     }
@@ -91,53 +85,6 @@ public class User implements Serializable {
         this.events = events;
     }
 
-    public String getMotorbike() {
-        return motorbike;
-    }
-
-    public void setMotorbike(String motorbike) {
-        this.motorbike = motorbike;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public UserRole getUserRole() {
         return userRole;

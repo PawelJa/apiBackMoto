@@ -55,9 +55,9 @@ public class UploadController {
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
 
-            User user = userRepository.findByUsername(username);
-            user.setAvatar("http://localhost:8080/images/uploaded/avatar_" + file.getOriginalFilename());
-            userRepository.save(user);
+//            User user = userRepository.findByUsername(username);
+//            user.setAvatar("http://localhost:8080/images/uploaded/avatar_" + file.getOriginalFilename());
+//            userRepository.save(user);
 
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");

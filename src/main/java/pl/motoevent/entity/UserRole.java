@@ -10,6 +10,7 @@ public class UserRole implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
+
     private String role;
 
     public long getUserId() {
