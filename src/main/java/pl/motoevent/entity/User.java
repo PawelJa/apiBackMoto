@@ -42,6 +42,9 @@ public class User {
 
     private String city;
 
+    @OneToOne
+    private UserRole userRole = new UserRole();
+
     @ManyToMany(mappedBy = "users")
     private List<Event> events = new ArrayList<>();
 
@@ -131,6 +134,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
     }
 
     public User() {
