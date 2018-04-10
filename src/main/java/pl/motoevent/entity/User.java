@@ -6,24 +6,25 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="users")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotEmpty
-    @Size(min= 6)
+    @Size(min= 4)
     @Column(unique = true)
     private String username;
 
     @NotEmpty
-    @Size(min=8)
+    @Size(min=4)
     private String password;
 
     @NotEmpty
@@ -34,13 +35,15 @@ public class User {
 
     private String lastName;
 
-    private String motorbike;
-
-    private String avatar;
-
     private String adress;
 
     private String city;
+
+    private String postcode;
+
+    private String motorbike;
+
+    private String avatar;
 
     @OneToOne
     private UserRole userRole = new UserRole();
