@@ -8,8 +8,10 @@ import java.io.Serializable;
 public class UserDetails implements Serializable {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
+
+//    private String email;
 
     private String firstName;
 
@@ -33,6 +35,14 @@ public class UserDetails implements Serializable {
     public void setUserId(long userId) {
         this.userId = userId;
     }
+
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     public String getFirstName() {
         return firstName;

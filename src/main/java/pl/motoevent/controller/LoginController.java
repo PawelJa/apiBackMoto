@@ -8,6 +8,8 @@ import pl.motoevent.security.UserPrincipal;
 @Controller
 public class LoginController {
 
+
+    /* checking authentication and redirect to proper view for logged user or show menu to login/register*/
     @GetMapping("/checkLogin")
     public String checkLogin(@AuthenticationPrincipal UserPrincipal principal) {
         if (principal != null) {
@@ -15,15 +17,14 @@ public class LoginController {
                     + principal.getAuthorities() + "\n"
                     + "\n***************************");
             if ((principal.getAuthorities().toString()).equals("[ROLE_ADMIN]")) {
-                System.out.println("\n**********\n ADMIN \n***********\n");
+//                System.out.println("\n**********\n ADMIN \n***********\n");
                 return "redirect:http://localhost:8080/admin/details/details-menu.html";
             } else if ((principal.getAuthorities().toString()).equals("[ROLE_MOD]")) {
-                System.out.println("\n**********\n MOD \n***********\n");
-
+//                System.out.println("\n**********\n MOD \n***********\n");
                 return "redirect:http://localhost:8080/mod/details/details.menu.html";
             }
             return "redirect:http://localhost:8080/user/menu/menu.html";
         }
-        return "redirect:/user/loginPage/login.html";
+        return "redirect:/all/login-menu/login-menu.html";
     }
 }
