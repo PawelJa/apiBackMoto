@@ -27,7 +27,7 @@ $(document).ready(function () {
         };
 
         // console.log(username + ", " + password + ", " + email);
-        fetch("http://localhost:8080/register", myInit).then(function (response) {
+        fetch("http://localhost:8080/registry/user", myInit).then(function (response) {
             window.location.href="/login";
         });
     });
