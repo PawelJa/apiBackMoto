@@ -59,6 +59,7 @@ public class RegisterController {
 
         UserModDetails userModDetails = user.getUserModDetails();
         userModRepository.save(userModDetails);
+
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
         System.out.println(user);
