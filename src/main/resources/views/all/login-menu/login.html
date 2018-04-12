@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="menu.css">
+    <link rel="stylesheet" type="text/css" href="../../style/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src='menu.js'></script>
 </head>
 <body>
 <div id="menu">
     <div id="logo">
-        <!--<img src="file:///home/magda/UPLOADED/f1-united-states-gp-2014-circuit-kerb-detail.jpg"/>-->
+        logo
     </div>
     <div id="menuContent">
         <a class="menu" href="http://localhost:8080/index.html">START</a>
@@ -20,15 +19,11 @@
     </div>
 </div>
 <div class = 'content'><br>
-    <h4>Witaj</h4>
-    <div class="avatar"></div>
-    <a href = 'http://localhost:8080/user/add_file/upload.html'>Dodaj avatar</a>
-    <a href = 'http://localhost:8080/user/add/add_form.html'>Dodaj opinię</a>
-    <a href = 'http://localhost:8080/user/details/show/show-details.html'>Wyświetl szczegóły konta</a>
-    <a href = 'http://localhost:8080/user/edit/edit_form.html'>Edytuj dane</a><br>
-    <a href = 'http://localhost:8080/logout'>Wyloguj</a>
-
-
+    <form action="#" method="post">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+        <input type="submit" value="Log in">
+    </form>
 </div>
 <div id="footer">
     <p>Autor: Paweł Janecki</p>

@@ -61,12 +61,12 @@ public class RegisterController {
         user.setUserRole(userRole);
         userRoleRepository.save(userRole);
 
-        UserDetails userDetails = user.getUserDetails();
-        userDetails.setUsername(user.getUsername());
-        userDetailsRepository.save(userDetails);
+//        UserDetails userDetails = user.getUserDetails();
+//        userDetails.setUsername(user.getUsername());
+        userDetailsRepository.save(user.getUserDetails());
 
-        UserModDetails userModDetails = user.getUserModDetails();
-        userModRepository.save(userModDetails);
+//        UserModDetails userModDetails = user.getUserModDetails();
+        userModRepository.save(user.getUserModDetails());
 
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
