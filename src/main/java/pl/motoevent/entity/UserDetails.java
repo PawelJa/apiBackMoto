@@ -11,17 +11,19 @@ public class UserDetails implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
 
-//    private String email;
+    private String username;
 
     private String firstName;
 
     private String lastName;
 
-    private String adress;
+    private String address;
 
     private String city;
 
     private String postcode;
+
+    private String phoneNumber;
 
     private String motorbike;
 
@@ -36,13 +38,13 @@ public class UserDetails implements Serializable {
         this.userId = userId;
     }
 
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String email) {
+        this.username = username;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -60,12 +62,12 @@ public class UserDetails implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String adress) {
+        this.address = adress;
     }
 
     public String getCity() {
@@ -82,6 +84,14 @@ public class UserDetails implements Serializable {
 
     public void setPostcode(String postcode) {
         this.postcode = postcode;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getMotorbike() {
@@ -106,6 +116,22 @@ public class UserDetails implements Serializable {
 
     public UserDetails() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "UserDetails{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", postcode='" + postcode + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", motorbike='" + motorbike + '\'' +
+                ", avatar='" + avatar + '\'' +
+                '}';
     }
 }
 

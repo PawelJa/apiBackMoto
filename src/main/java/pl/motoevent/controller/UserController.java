@@ -57,6 +57,16 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User showUserDetails(@PathVariable long id) {
+        User user = this.userRepository.findOne(id);
+        System.out.println("/n **************** /n " +
+                        "dane usera:/n" + user);
+        System.out.println("/n **************** /n " +
+                "szczegoly: /n" +
+                user.getUserDetails());
+        System.out.println("/n ************ /n");
+//        UserDetails userDetails = new UserDetails();
+//        userDetails.setCity("POSEN");
+//        userDetailsRepository.save(userDetails);
         return this.userRepository.findOne(id);
     }
 

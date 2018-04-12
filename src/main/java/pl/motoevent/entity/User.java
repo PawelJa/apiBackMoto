@@ -32,6 +32,9 @@ public class User implements Serializable {
     private UserDetails userDetails = new UserDetails();
 
     @OneToOne
+    private UserModDetails userModDetails = new UserModDetails();
+
+    @OneToOne
     private UserRole userRole = new UserRole();
 
     @ManyToMany(mappedBy = "users")
@@ -92,6 +95,14 @@ public class User implements Serializable {
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    public UserModDetails getUserModDetails() {
+        return userModDetails;
+    }
+
+    public void setUserModDetails(UserModDetails userModDetails) {
+        this.userModDetails = userModDetails;
     }
 
     public User() {

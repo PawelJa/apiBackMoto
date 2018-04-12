@@ -5,8 +5,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pl.motoevent.entity.User;
 import pl.motoevent.entity.UserDetails;
+import pl.motoevent.entity.UserModDetails;
 import pl.motoevent.entity.UserRole;
 import pl.motoevent.repository.UserDetailsRepository;
+import pl.motoevent.repository.UserModRepository;
 import pl.motoevent.repository.UserRepository;
 import pl.motoevent.repository.UserRoleRepository;
 
@@ -28,6 +30,9 @@ public class RegisterController {
     @Autowired
     private UserRoleRepository userRoleRepository;
 
+    @Autowired
+    private UserModRepository userModRepository;
+
 //    @PostMapping("/register")
 //    public String addUser(@RequestBody User user) {
 //        user.setPassword(encoder.encode(user.getPassword()));
@@ -39,17 +44,24 @@ public class RegisterController {
     public String addUser(@RequestBody User user) {
 //        User newUser = user;
         System.out.println("/n *************** SAVING ************* /n");
-        System.out.println(user);
-        UserRole userRole = new UserRole();
+        System.out.println(user.getUsername());
+
+        UserRole userRole = user.getUserRole();
         userRole.setRole("USER");
         user.setUserRole(userRole);
         userRoleRepository.save(userRole);
-        UserDetails userDetails = new UserDetails();
-//        userDetails.setEmail(user.getEmail());
+        System.out.println(userRole);
+
+        UserDetails userDetails = user.getUserDetails();
+        userDetails.setUsername(user.getUsername());
         userDetailsRepository.save(userDetails);
-//        String pass = user.getPassword();
+        System.out.println(userDetails);
+
+        UserModDetails userModDetails = user.getUserModDetails();
+        userModRepository.save(userModDetails);
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
+        System.out.println(user);
         System.out.println("/n*******/n user added /n******/n");
         return "user added";
     }
