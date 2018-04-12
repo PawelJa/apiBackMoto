@@ -33,44 +33,25 @@ public class RegisterController {
     @Autowired
     private UserModRepository userModRepository;
 
-//    @PostMapping("/register")
-//    public String addUser(@RequestBody User user) {
-//        user.setPassword(encoder.encode(user.getPassword()));
-//        userRepository.save(user);
-//        return "ok";
-//    }
-
+    // User Registry
     @PostMapping("/user")
     public String addUser(@RequestBody User user) {
-//        User newUser = user;
-        System.out.println("/n *************** SAVING ************* /n");
-        System.out.println(user.getUsername());
-
         UserRole userRole = user.getUserRole();
         userRole.setRole("USER");
         user.setUserRole(userRole);
         userRoleRepository.save(userRole);
-        System.out.println(userRole);
 
         UserDetails userDetails = user.getUserDetails();
         userDetails.setUsername(user.getUsername());
         userDetailsRepository.save(userDetails);
-        System.out.println(userDetails);
 
         UserModDetails userModDetails = user.getUserModDetails();
         userModRepository.save(userModDetails);
 
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
-        System.out.println(user);
-        System.out.println("/n*******/n user added /n******/n");
         return "user added";
     }
-
-//    @GetMapping("/login?error")
-//    public String sss() {
-//        return "redirect:http://www.google.pl";
-//    }
 
 
 }

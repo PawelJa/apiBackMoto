@@ -39,12 +39,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/all/**").permitAll()
                 .antMatchers("/registry/**").permitAll()
+
 //                .antMatchers("/login").permitAll()
 //                .antMatchers("/event").permitAll()
 //                .antMatchers("/register").permitAll()
 //                .antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().permitAll()
-                .and().formLogin().permitAll()
+                .and().formLogin().permitAll().failureUrl("http://google.pl")
                 .and().csrf().disable();
         ;
         http.formLogin().defaultSuccessUrl("/index.html", true);
