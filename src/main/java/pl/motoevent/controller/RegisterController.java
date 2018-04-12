@@ -41,6 +41,26 @@ public class RegisterController {
         user.setUserRole(userRole);
         userRoleRepository.save(userRole);
 
+//        UserDetails userDetails = user.getUserDetails();
+//        userDetails.setUsername("sad");
+        userDetailsRepository.save(user.getUserDetails());
+
+//        UserModDetails userModDetails = user.getUserModDetails();
+//        userModDetails.setCompanyName("ASDA");
+        userModRepository.save(user.getUserModDetails());
+
+        user.setPassword(encoder.encode(user.getPassword()));
+        userRepository.save(user);
+        return "user added";
+    }
+
+    @PostMapping("/mod")
+    public String addMod(@RequestBody User user) {
+        UserRole userRole = user.getUserRole();
+        userRole.setRole("MOD");
+        user.setUserRole(userRole);
+        userRoleRepository.save(userRole);
+
         UserDetails userDetails = user.getUserDetails();
         userDetails.setUsername(user.getUsername());
         userDetailsRepository.save(userDetails);
