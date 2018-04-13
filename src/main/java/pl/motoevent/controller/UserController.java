@@ -16,7 +16,7 @@ import pl.motoevent.security.UserPrincipal;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/user")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -31,21 +31,19 @@ public class UserController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @PostMapping("/user")
+    @PostMapping("")
     public String addUser(@RequestBody User user) {
-//        User newUser = user;
         System.out.println("/n *************** SAVING ************* /n");
-        System.out.println(user);
+        user.setActive(true);
         UserRole userRole = new UserRole();
         userRole.setRole("USER");
         user.setUserRole(userRole);
         userRoleRepository.save(userRole);
         UserDetails userDetails = new UserDetails();
-//        userDetails.setEmail(user.getEmail());
         userDetailsRepository.save(userDetails);
-//        String pass = user.getPassword();
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
+        System.out.println(user);
         System.out.println("/n*******/n user added /n******/n");
         return "user added";
     }
@@ -55,26 +53,22 @@ public class UserController {
         return this.userRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public User showUserDetails(@PathVariable long id) {
-        User user = this.userRepository.findOne(id);
-        System.out.println("/n **************** /n " +
-                        "dane usera:/n" + user);
-        System.out.println("/n **************** /n " +
-                "szczegoly: /n" +
-                user.getUserDetails());
-        System.out.println("/n ************ /n");
-//        UserDetails userDetails = new UserDetails();
-//        userDetails.setCity("POSEN");
-//        userDetailsRepository.save(userDetails);
-        return this.userRepository.findOne(id);
+    @GetMapping("/details")
+    public UserDetails showUserDetails(@AuthenticationPrincipal UserPrincipal userPrincipal) {
+        User user = this.userRepository.findOne(userPrincipal.getId());
+        return user.getUserDetails();
     }
 
-//    @GetMapping("/")
-//    public User getUserDetails (@AuthenticationPrincipal UserPrincipal principal) {
-//        return userRepository.findByUsername(principal.getUsername());
-//    }
+    @PutMapping("/details/{id}")
+    public String updateUserDetails(@RequestBody UserDetails userDetails, @PathVariable long id) {
+        UserDetails userDetails1 = userDetailsRepository.findOne(id);
+        System.out.println("/**********/n" + userDetails);
+        System.out.println("/**********/n" + userDetails1);
+        userDetailsRepository.save(userDetails);
+        return "user details updated";
 
+        // TODO !!
+    }
 
 
 }

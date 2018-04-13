@@ -28,6 +28,8 @@ public class User implements Serializable {
 
     private String email;
 
+    private boolean isActive;
+
     @OneToOne
     private UserDetails userDetails = new UserDetails();
 
@@ -72,6 +74,14 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
     public UserDetails getUserDetails() {
         return userDetails;
     }
@@ -106,6 +116,7 @@ public class User implements Serializable {
     }
 
     public User() {
+        this.isActive = true;
     }
 
     @Override
