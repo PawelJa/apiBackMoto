@@ -55,7 +55,7 @@ $(document).ready(function () {
         };
 
         fetch(API_URL + "user/details/" + userId, myInit).then(function (response) {
-            window.location.href=API_URL + "/user/menu/menu.html"
+            // window.location.href=API_URL + "/user/menu/menu.html"
         })
 
     })

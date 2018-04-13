@@ -61,10 +61,11 @@ public class UserController {
 
     @PutMapping("/details/{id}")
     public String updateUserDetails(@RequestBody UserDetails userDetails, @PathVariable long id) {
-        UserDetails userDetails1 = userDetailsRepository.findOne(id);
-        System.out.println("/**********/n" + userDetails);
-        System.out.println("/**********/n" + userDetails1);
-        userDetailsRepository.save(userDetails);
+        System.out.println("GIT");
+//        UserDetails userDetails1 = userDetailsRepository.findOne(id);
+//        System.out.println("/**********/n" + userDetails);
+//        System.out.println("/**********/n" + userDetails1);
+//        userDetailsRepository.save(userDetails);
         return "user details updated";
 
         // TODO !!
